@@ -1,6 +1,155 @@
+body {
+  overflow-y: hidden; }
+
 .app__header {
-  background-color: #fff; }
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  flex: 0, 1, auto;
+  background-color: #fff;
+  width: 100%;
+  height: 8vh;
+  border-bottom: 0.0625rem solid lightgray; }
+  .app__header__brand {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex: 0, 1, auto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    color: #4786FF; }
 
 .app__board {
-  background-color: #F5F7FA;
-  height: 100%; }
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  flex: 0, 1, auto;
+  background-color: #F5F7FA; }
+
+.app__section1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: row;
+  flex: 0, 1, auto;
+  width: 100%; }
+  .app__section1__user-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: row;
+    flex: 0, 1, auto; }
+    .app__section1__user-info__first-letter {
+      height: 3.125rem;
+      width: 3.125rem;
+      border-radius: 0.25rem;
+      background-color: #4786FF;
+      box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+    .app__section1__user-info__content {
+      margin-left: 1.5rem; }
+      .app__section1__user-info__content__full-name {
+        font-weight: 500;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+        color: #1B2437; }
+      .app__section1__user-info__content__profession {
+        font-style: italic;
+        font-size: 1rem;
+        line-height: 1.1875rem;
+        color: #AAACAF; }
+  .app__section1__add-task-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: row;
+    flex: 0, 1, auto; }
+    .app__section1__add-task-form__input {
+      padding-left: 16px;
+      margin-top: 1px;
+      height: 46px;
+      width: 240px;
+      margin-right: 8px;
+      font-size: 16px;
+      line-height: 19px;
+      border: none; }
+      .app__section1__add-task-form__input ::placeholder {
+        color: #E4E6E8; }
+      .app__section1__add-task-form__input:focus {
+        outline: 0;
+        box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+    .app__section1__add-task-form__add-task-btn {
+      background: #4786FF;
+      border: none;
+      border-radius: 0.25rem;
+      width: 3.125rem;
+      height: 3.125rem;
+      font-weight: 900;
+      font-size: 1.5rem;
+      line-height: 1.8125rem;
+      color: #fff; }
+      .app__section1__add-task-form__add-task-btn:focus {
+        outline: 0; }
+      .app__section1__add-task-form__add-task-btn:hover {
+        box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+
+.app__section2 {
+  height: 92vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: row;
+  flex: 0, 1, auto; }
+  .app__section2__taskcolumn {
+    width: 21.25rem;
+    height: 32.5rem;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 0.0625rem;
+    margin-left: 2.5rem;
+    background-color: white; }
+    .app__section2__taskcolumn:nth-child(1) {
+      margin-left: 0; }
+    .app__section2__taskcolumn:hover {
+      border: 0.0625rem solid #4786FF;
+      box-shadow: 0px 0.0625rem 0.375rem #4786FF; }
+  .app__section2__title {
+    margin: 1.5rem 0 0 1.5rem;
+    font-weight: 600;
+    font-size: 1.5rem; }
+  .app__section2____added-tasks__task {
+    list-style-type: none;
+    margin: 1rem 0 0 1.5rem;
+    padding: 0.625rem 0.5rem 0.625rem 0.625rem;
+    position: relative;
+    background-color: #fff;
+    border: 0.0625rem solid #EBEDF0;
+    box-sizing: border-box;
+    border-radius: 0.125rem;
+    min-height: 5rem;
+    width: 18rem; }
+    .app__section2____added-tasks__task:nth-child(1) {
+      margin-top: 2rem; }
+    .app__section2____added-tasks__task__content {
+      margin: 1rem 1rem 0 1rem;
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+      color: #54585A; }
+      .app__section2____added-tasks__task__content:hover {
+        background: #fff;
+        border: 0.0625rem solid #4786FF;
+        box-sizing: border-box;
+        box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5);
+        border-radius: 2px; }
+    .app__section2____added-tasks__task__delete {
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem;
+      color: #54585A; }
+      .app__section2____added-tasks__task__delete:hover {
+        color: #c42d1c; }

@@ -5,3 +5,11 @@
     flex-direction: $fdr;
     flex: $flshort;
 }
+
+@mixin shadow-generator($color) {
+    box-shadow: 0 pxToRem(4px) pxToRem(20px) $color;
+}
+
+@mixin border-generator($color) {
+    border: pxToRem(1px) solid $color;
+}

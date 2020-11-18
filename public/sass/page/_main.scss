@@ -1,0 +1,183 @@
+//FIXME: 
+body {
+    overflow-y: hidden;
+}
+
+.app {
+    &__header {
+        @include flex();
+        background-color: $color-white;
+        width: 100%;
+        height: 8vh;
+        border-bottom: pxToRem(1px) solid $color-light-gray;
+
+       
+        &__brand {
+            @include flex($ai: center);
+            // margin-top: pxToRem(22px);
+            font-style: normal;
+            font-weight: bold;
+            font-size: pxToRem(24px);
+            line-height: pxToRem(29px);
+            // text-align: center;
+            color: $color-blue;
+        }
+    }
+
+    &__board {
+        @include flex($fdr: column);
+        background-color: $color-milky;
+        // margin-top: pxToRem(60px);
+    }
+
+    &__section1 {
+        @include flex($jc: space-between);
+        width: 100%;
+
+        &__user-info {
+            @include flex();
+    
+            &__first-letter {
+                height: pxToRem(50px);
+                width: pxToRem(50px);
+                border-radius: pxToRem(4px);
+                background-color: $color-blue;
+                @include shadow-generator($box-shadow-blue);
+            }
+    
+            &__content {
+                margin-left: pxToRem(24px);
+    
+                &__full-name {
+                    font-weight: 500;
+                    font-size: pxToRem(20px);
+                    line-height: pxToRem(24px);
+                    color: $color-light-black;
+                }
+                &__profession {
+                    font-style: italic;
+                    font-size: pxToRem(16px);
+                    line-height: pxToRem(19px);
+                    color: $color-medium-gray;
+                }
+            }
+        }
+
+        &__add-task-form {
+            @include flex();
+
+            &__input {
+                padding-left: (16px);
+                margin-top: (1px);
+                height: (46px);
+                width: (240px);
+                // border-radius: 0;
+                margin-right: (8px);
+                font-size: (16px);
+                line-height: (19px);
+                border: none;
+                ::placeholder {
+                    color: #E4E6E8;
+                }
+                &:focus {
+                    outline: 0;
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
+
+            &__add-task-btn {
+                background: $color-blue;
+                border: none;
+                border-radius: pxToRem(4px);
+                width: pxToRem(50px);
+                height: pxToRem(50px);
+                font-weight: 900;
+                font-size: pxToRem(24px);
+                line-height: pxToRem(29px);
+                color: $color-white;
+                &:focus {
+                    outline: 0;
+                }
+                &:hover {
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
+        }
+    }
+
+    &__section2 {
+        height: 92vh;
+        @include flex($fdr: row);
+        
+        &__taskcolumn {
+            width: pxToRem(340px);
+            height: pxToRem(520px);
+            // flex: 0 0 auto;
+            background: $color-white;
+            box-sizing: border-box;
+            border-radius: pxToRem(1px);
+            margin-left: pxToRem(40px);
+            background-color: white;
+            &:nth-child(1) {
+                margin-left: 0;
+            }
+            &:hover {
+                @include border-generator($color-blue);
+                box-shadow: 0px pxToRem(1px) pxToRem(6px) $color-blue;
+            }
+        }
+
+        &__title {
+            margin: pxToRem(24px) 0 0 pxToRem(24px);
+            font-weight: 600;
+            font-size: pxToRem(24px);
+        }
+
+        &____added-tasks {
+            
+
+            &__task {
+                list-style-type: none;
+                margin: pxToRem(16px) 0 0 pxToRem(24px);
+                padding: pxToRem(10px) pxToRem(8px) pxToRem(10px) pxToRem(10px);
+                position: relative; 
+                background-color: $color-white;
+                @include border-generator($color-border-gray);
+                box-sizing: border-box;
+                border-radius: pxToRem(2px);
+                &:nth-child(1) {
+                    margin-top: pxToRem(32px);
+                }
+                min-height: pxToRem(80px);
+                width: pxToRem(288px);
+
+                &__content {
+                    margin: pxToRem(16px) pxToRem(16px) 0 pxToRem(16px);
+                    font-weight: 400;
+                    font-size: pxToRem(20px);
+                    line-height: pxToRem(24px);
+                    color: $color-dark-gray;
+
+                    &:hover {
+                        background: $color-white;
+                        @include border-generator($color-blue);
+                        box-sizing: border-box;
+                        @include shadow-generator($box-shadow-blue);
+                        border-radius: 2px;
+                    }
+                }
+
+                &__delete {
+                    position: absolute;
+                    bottom: pxToRem(8px);
+                    right: pxToRem(8px);
+                    color: $color-dark-gray;
+
+                    &:hover {
+                        color: rgb(196, 45, 28);
+                    }
+                }
+            }
+        }
+    }
+}
