@@ -1,4 +1,4 @@
-let taskInputValue;
+let taskInputValue = document.getElementById('add-task-input');
 let id = 0;
 
 const createTask = (newTask, taskId) => {
@@ -18,8 +18,7 @@ const createTask = (newTask, taskId) => {
     let trash = document.createElement('div');
     trash.className = 'app__section2__added-tasks__task__delete';
     trash.textContent = 'X';
-    //FIXME:
-    // trash.addEventListener('click', removeTask(event.target.parentNode.id));
+    trash.addEventListener('click', (event) => removeTask(event.target.parentNode.id));
 
     task.appendChild(taskContent);
     task.appendChild(trash);
@@ -34,18 +33,18 @@ export const addTask = (event) => {
         console.log('test', taskInputValue);
         id++;
         createTask(taskInputValue, id);
-        taskInputValue = '';
+        document.getElementById('add-task-input').value = '';
     }
 }
 
-//FIXME:
-// const removeTask = (id) => {
-//     document.getElementById(`${id}`).remove();
-// }
+const removeTask = (id) => {
+    console.log('d');
+    document.getElementById(`${id}`).remove();
+}
 
 
 // Adding event listeners to 'Add' button
 document.getElementById('add-task').addEventListener('click', addTask);
 
 //Listening add task input
-document.getElementById('add-task-input').addEventListener('change', (event) => taskInputValue = event.target.value);
+taskInputValue.addEventListener('change', (event) => taskInputValue = event.target.value);

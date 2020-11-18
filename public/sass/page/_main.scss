@@ -124,12 +124,25 @@ body {
             border-radius: pxToRem(1px);
             margin-left: pxToRem(40px);
             background-color: white;
+            overflow-y: scroll;
             &:nth-child(1) {
                 margin-left: 0;
             }
             &:hover {
                 @include border-generator($color-blue);
                 box-shadow: 0px pxToRem(1px) pxToRem(6px) $color-blue;
+            }
+            
+            &::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                    background-color: #F5F5F5;
+            }
+            &::-webkit-scrollbar {
+                width: 6px;
+	            background-color: #F5F5F5;
+            }
+            &::-webkit-scrollbar-thumb {
+	            background-color: #000000;
             }
         }
 
@@ -140,21 +153,21 @@ body {
         }
 
         &__added-tasks {
-                // @include flex();
                 margin-left: pxToRem(-20px);
             &__task {
+                min-height: pxToRem(80px);
+                width: pxToRem(288px);
                 // @include flex($jc: center);
                 list-style-type: none;
                 position: relative; 
                 background-color: $color-white;
                 @include border-generator($color-border-gray);
                 box-sizing: border-box;
-                border-radius: pxToRem(2px);E
+                border-radius: pxToRem(2px);
+                margin-bottom: pxToRem(12px);
                 &:nth-child(1) {
                     margin-top: pxToRem(32px);
-                }
-                min-height: pxToRem(80px);
-                width: pxToRem(288px);
+                } 
 
                 &:hover {
                     background: $color-white;
