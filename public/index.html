@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Vanilla ToDo task manager"
+    />
+    <link rel="icon" href="./favicon.ico">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="module" src="http://localhost:3000/main.js" defer></script>
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Ubuntu:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/ee4f7cdaa4.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- App script -->
+    <title>Vanilla ToDo</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app__header">
+        <nav></nav>
+        <div class="app__navbar">
+          <div class="app__navbar__burger-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="app__navbar__brand">
+            <span class="app__navbar__brand--pt1">Vanilla</span><span class="app__navbar__brand--pt2">Tasker</span>
+          </div>
+        </div>
+      </div>
+      <div class="app__board">
+        <div class="app__user-info">
+          <div class="app__user-info__first-letter">R</div>
+          <div class="app__user-info__content">
+            <div class="app__user-info__content__full-name">Rashad Asadov</div>
+            <div class="app__user-info__content__profession">Project Owner</div>
+          </div>
+        </div>
+        <div class="app__add-task-form">
+          <input type="text" class="app__add-task-form__input" placeholder="Add task">
+          <button class="app__add-task-form__add-task">+</button>
+        </div>
+        <div class="app__columns">
+          <div class="app__dropzone">
+            <div class="app__dropzone__title">Tasks</div>
+            <ul class="app_dropzone__added-tasks">
+
+            </ul>
+          </div>
+          <div class="app__dropzone">
+            <div class="app__dropzone__title">In Progress</div>
+          </div>
+          <div class="app__dropzone">
+            <div class="app__dropzone__title">Done</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

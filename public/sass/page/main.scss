@@ -1,0 +1,10 @@
+.app {
+    &__header {
+        background-color: $color-white;
+    }
+
+    &__board {
+        background-color: $color-light-grey; 
+        height: 100%;
+    }
+}

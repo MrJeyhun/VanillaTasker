@@ -1,0 +1,16 @@
+{
+  "name": "vanillatasker",
+  "version": "1.0.0",
+  "description": "ToDo app, created with Vanilla JS",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass public/sass/index.scss public/css/index.css -w",
+    "start": "node server/server.js"
+  },
+  "author": "MrJeyhun",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-sass": "^5.0.0"
+  }
+}
