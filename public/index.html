@@ -40,8 +40,10 @@
             </div>
           </div>
           <div class="app__section1__add-task-form">
-            <input type="text" class="app__section1__add-task-form__input" placeholder="Add task">
-            <button class="app__section1__add-task-form__add-task-btn">+</button>
+            <form>
+              <input type="text" class="app__section1__add-task-form__input" id='add-task-input' placeholder="Add task">
+              <input type='submit' class="app__section1__add-task-form__add-task-btn" id="add-task" value='Add'></input>
+            </form>
           </div>
         </div>
         <div class="app__section2">
@@ -49,7 +51,7 @@
             <div class="app__section2__title">Tasks</div>
             <ul class="app__section2__added-tasks">
               <!-- TODO: hardcode for test -->
-              <!-- <li class="app_section2__added-tasks__task" draggable='true'>
+              <!-- <li class="app__section2__added-tasks__task" draggable='true'>
                   <div class="app__section2__added-tasks__task__content">Do all refactors</div>
                   <div class="app__section2__added-tasks__task__delete">X</div>
               </li> -->

@@ -97,9 +97,10 @@ body {
       width: 3.125rem;
       height: 3.125rem;
       font-weight: 900;
-      font-size: 1.5rem;
+      font-size: 0.875rem;
       line-height: 1.8125rem;
-      color: #fff; }
+      color: #fff;
+      cursor: pointer; }
       .app__section1__add-task-form__add-task-btn:focus {
         outline: 0; }
       .app__section1__add-task-form__add-task-btn:hover {
@@ -130,34 +131,35 @@ body {
     font-weight: 600;
     font-size: 1.5rem; }
   .app__section2__added-tasks {
-    list-style-type: none;
-    margin: 1rem 0 0 1.5rem;
-    padding: 0.625rem 0.5rem 0.625rem 0.625rem;
-    position: relative;
-    background-color: #fff;
-    border: 0.0625rem solid #EBEDF0;
-    box-sizing: border-box;
-    border-radius: 0.125rem;
-    min-height: 5rem;
-    width: 18rem; }
-    E
-.app__section2__added-tasks:nth-child(1) {
-      margin-top: 2rem; }
-    .app__section2__added-tasks:hover {
-      background: #fff;
-      border: 0.0625rem solid #4786FF;
+    margin-left: -1.25rem; }
+    .app__section2__added-tasks__task {
+      list-style-type: none;
+      position: relative;
+      background-color: #fff;
+      border: 0.0625rem solid #EBEDF0;
       box-sizing: border-box;
-      box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5);
-      border-radius: 2px; }
-    .app__section2__added-tasks__task__content {
-      margin: 1rem 1rem 0 1rem;
-      font-size: 1.125rem;
-      line-height: 1.5rem;
-      color: red; }
-    .app__section2__added-tasks__task__delete {
-      position: absolute;
-      bottom: 0.5rem;
-      right: 0.5rem;
-      color: #54585A; }
-      .app__section2__added-tasks__task__delete:hover {
-        color: #c42d1c; }
+      border-radius: 0.125rem;
+      min-height: 5rem;
+      width: 18rem; }
+      E
+.app__section2__added-tasks__task:nth-child(1) {
+        margin-top: 2rem; }
+      .app__section2__added-tasks__task:hover {
+        background: #fff;
+        border: 0.0625rem solid #4786FF;
+        box-sizing: border-box;
+        box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5);
+        border-radius: 2px; }
+      .app__section2__added-tasks__task__content {
+        margin: 1rem 1rem 0 1rem;
+        font-weight: 400;
+        font-size: 1.125rem;
+        line-height: 1.5rem;
+        color: red; }
+      .app__section2__added-tasks__task__delete {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        color: #54585A; }
+        .app__section2__added-tasks__task__delete:hover {
+          color: #c42d1c; }

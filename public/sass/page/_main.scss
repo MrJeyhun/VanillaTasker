@@ -96,10 +96,11 @@ body {
                 border-radius: pxToRem(4px);
                 width: pxToRem(50px);
                 height: pxToRem(50px);
-                font-weight: 900;
-                font-size: pxToRem(24px);
+                font-weight: 900; 
+                font-size: pxToRem(14px);
                 line-height: pxToRem(29px);
                 color: $color-white;
+                cursor: pointer;
                 &:focus {
                     outline: 0;
                 }
@@ -139,29 +140,29 @@ body {
         }
 
         &__added-tasks {
-            list-style-type: none;
-            margin: pxToRem(16px) 0 0 pxToRem(24px);
-            padding: pxToRem(10px) pxToRem(8px) pxToRem(10px) pxToRem(10px);
-            position: relative; 
-            background-color: $color-white;
-            @include border-generator($color-border-gray);
-            box-sizing: border-box;
-            border-radius: pxToRem(2px);E
-            &:nth-child(1) {
-                margin-top: pxToRem(32px);
-            }
-            min-height: pxToRem(80px);
-            width: pxToRem(288px);
-
-            &:hover {
-                background: $color-white;
-                @include border-generator($color-blue);
-                box-sizing: border-box;
-                @include shadow-generator($box-shadow-blue);
-                border-radius: 2px;
-            }
-
+                // @include flex();
+                margin-left: pxToRem(-20px);
             &__task {
+                // @include flex($jc: center);
+                list-style-type: none;
+                position: relative; 
+                background-color: $color-white;
+                @include border-generator($color-border-gray);
+                box-sizing: border-box;
+                border-radius: pxToRem(2px);E
+                &:nth-child(1) {
+                    margin-top: pxToRem(32px);
+                }
+                min-height: pxToRem(80px);
+                width: pxToRem(288px);
+
+                &:hover {
+                    background: $color-white;
+                    @include border-generator($color-blue);
+                    box-sizing: border-box;
+                    @include shadow-generator($box-shadow-blue);
+                    border-radius: 2px;
+                }  
                 &__content {
                     margin: pxToRem(16px) pxToRem(16px) 0 pxToRem(16px);
                     font-weight: 400;
@@ -169,8 +170,6 @@ body {
                     line-height: pxToRem(24px);
                     // color: $color-dark-gray;
                     color: red;
-
-                    
                 }
 
                 &__delete {
