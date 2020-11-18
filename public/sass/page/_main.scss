@@ -203,7 +203,7 @@ body {
 .hold {
 	&:active {
 		&:hover {
-			border: solid 3px blue;
+			border: solid 3px $color-dark-blue;
 		}
 	}
 }
