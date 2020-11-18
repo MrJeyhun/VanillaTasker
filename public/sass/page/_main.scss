@@ -4,6 +4,7 @@ body {
 }
 
 .app {
+    font-family: 'Poppins', sans-serif;
     &__header {
         @include flex();
         background-color: $color-white;
@@ -14,12 +15,12 @@ body {
        
         &__brand {
             @include flex($ai: center);
+            padding: pxToRem(5px) 0 pxToRem(5px) pxToRem(10px);
+            font-family: 'Pacifico', cursive;
             // margin-top: pxToRem(22px);
             font-style: normal;
-            font-weight: bold;
             font-size: pxToRem(24px);
             line-height: pxToRem(29px);
-            // text-align: center;
             color: $color-blue;
         }
     }
@@ -129,6 +130,8 @@ body {
             margin-left: pxToRem(40px);
             background-color: white;
             overflow-y: scroll;
+            -moz-box-shadow: 0 0 pxToRem(8px) 0 ($box-shadow-blue);
+            box-shadow: 0 0 pxToRem(8px) 0 ($box-shadow-blue);
             &:nth-child(1) {
                 margin-left: 0;
             }

@@ -11,5 +11,6 @@
 }
 
 @mixin border-generator($color) {
+    -moz-box-shadow: pxToRem(1px) solid $color;
     border: pxToRem(1px) solid $color;
 }
