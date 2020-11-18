@@ -26,42 +26,47 @@
   <body>
     <div class="app">
       <div class="app__header">
-        <nav></nav>
-        <div class="app__navbar">
-          <div class="app__navbar__burger-btn">
-            <div></div>
-            <div></div>
-            <div></div>
+          <div class="app__header__brand">
+            <span class="app__header__brand--pt1">Vanilla</span><span class="app__header__brand--pt2">Tasker</span>
           </div>
-          <div class="app__navbar__brand">
-            <span class="app__navbar__brand--pt1">Vanilla</span><span class="app__navbar__brand--pt2">Tasker</span>
-          </div>
-        </div>
       </div>
       <div class="app__board">
-        <div class="app__user-info">
-          <div class="app__user-info__first-letter">R</div>
-          <div class="app__user-info__content">
-            <div class="app__user-info__content__full-name">Rashad Asadov</div>
-            <div class="app__user-info__content__profession">Project Owner</div>
+        <div class="app__section1">
+          <div class="app__section1__user-info">
+            <div class="app__section1__user-info__first-letter">R</div>
+            <div class="app__section1__user-info__content">
+              <div class="app__section1__user-info__content__full-name">Rashad Asadov</div>
+              <div class="app__section1__user-info__content__profession">Project Owner</div>
+            </div>
+          </div>
+          <div class="app__section1__add-task-form">
+            <form>
+              <input type="text" class="app__section1__add-task-form__input" id='add-task-input' placeholder="Add task">
+              <input type='submit' class="app__section1__add-task-form__add-task-btn" id="add-task" value='Add'></input>
+            </form>
           </div>
         </div>
-        <div class="app__add-task-form">
-          <input type="text" class="app__add-task-form__input" placeholder="Add task">
-          <button class="app__add-task-form__add-task">+</button>
-        </div>
-        <div class="app__columns">
-          <div class="app__dropzone">
-            <div class="app__dropzone__title">Tasks</div>
-            <ul class="app_dropzone__added-tasks">
-
-            </ul>
+        <div class="app__section2">
+          <div class="app__section2__column">
+            <div class="app__section2__title">Tasks</div>
+            <div class="app__section2__taskcolumn dropzone">
+              <!-- <ul class="app__section2__added-tasks">
+              </ul> -->
+            </div>
           </div>
-          <div class="app__dropzone">
-            <div class="app__dropzone__title">In Progress</div>
+          <div class="app__section2__column">
+            <div class="app__section2__title">In Progress</div>
+            <div class="app__section2__taskcolumn dropzone">
+              <!-- <ul class="app__section2__added-tasks">
+              </ul> -->
+            </div>
           </div>
-          <div class="app__dropzone">
-            <div class="app__dropzone__title">Done</div>
+          <div class="app__section2__column">
+            <div class="app__section2__title">Done</div>
+            <div class="app__section2__taskcolumn dropzone">
+              <!-- <ul class="app__section2__added-tasks">
+              </ul> -->
+            </div>
           </div>
         </div>
       </div>

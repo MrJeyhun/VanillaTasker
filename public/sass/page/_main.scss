@@ -1,0 +1,215 @@
+//FIXME: 
+body {
+    overflow-y: hidden;
+}
+
+.app {
+    &__header {
+        @include flex();
+        background-color: $color-white;
+        width: 100%;
+        height: 8vh;
+        border-bottom: pxToRem(1px) solid $color-light-gray;
+
+       
+        &__brand {
+            @include flex($ai: center);
+            // margin-top: pxToRem(22px);
+            font-style: normal;
+            font-weight: bold;
+            font-size: pxToRem(24px);
+            line-height: pxToRem(29px);
+            // text-align: center;
+            color: $color-blue;
+        }
+    }
+
+    &__board {
+        @include flex($fdr: column);
+        background-color: $color-milky;
+        // margin-top: pxToRem(60px);
+    }
+
+    &__section1 {
+        @include flex($jc: space-between);
+        padding: pxToRem(30px);
+
+        &__user-info {
+            @include flex();
+    
+            &__first-letter {
+                @include flex($jc: center, $ai: center);
+                height: pxToRem(50px);
+                width: pxToRem(50px);
+                border-radius: pxToRem(4px);
+                background-color: $color-blue;
+                @include shadow-generator($box-shadow-blue);
+                font-size: pxToRem(20px);
+                color: $color-white;
+                font-weight: 900;
+                // margin: 5px 0px 0px 16px;
+            }
+    
+            &__content {
+                margin-left: pxToRem(24px);
+    
+                &__full-name {
+                    font-weight: 500;
+                    font-size: pxToRem(20px);
+                    line-height: pxToRem(24px);
+                    color: $color-light-black;
+                }
+                &__profession {
+                    font-style: italic;
+                    font-size: pxToRem(16px);
+                    line-height: pxToRem(19px);
+                    color: $color-medium-gray;
+                }
+            }
+        }
+
+        &__add-task-form {
+            @include flex();
+
+            &__input {
+                padding-left: (16px);
+                margin-top: (1px);
+                height: (46px);
+                width: (240px);
+                // border-radius: 0;
+                margin-right: (8px);
+                font-size: (16px);
+                line-height: (19px);
+                border: none;
+                ::placeholder {
+                    color: #E4E6E8;
+                }
+                &:focus {
+                    outline: 0;
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
+
+            &__add-task-btn {
+                background: $color-blue;
+                border: none;
+                border-radius: pxToRem(4px);
+                width: pxToRem(50px);
+                height: pxToRem(50px);
+                font-weight: 900; 
+                font-size: pxToRem(14px);
+                line-height: pxToRem(29px);
+                color: $color-white;
+                cursor: pointer;
+                &:focus {
+                    outline: 0;
+                }
+                &:hover {
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
+        }
+    }
+
+    &__section2 {
+        height: 92vh;
+        @include flex($jc: space-around, $fdr: row);
+
+        &__column {
+            @include flex($fdr: column);
+        }
+        
+        &__taskcolumn {
+            width: pxToRem(340px);
+            height: pxToRem(520px);
+            // flex: 0 0 auto;
+            background: $color-white;
+            box-sizing: border-box;
+            border-radius: pxToRem(1px);
+            margin-left: pxToRem(40px);
+            background-color: white;
+            overflow-y: scroll;
+            &:nth-child(1) {
+                margin-left: 0;
+            }
+
+            &::-webkit-scrollbar {
+                width: 6px;
+	            background-color: #F5F5F5;
+            }
+            &::-webkit-scrollbar-thumb {
+	            background-color: $color-blue;
+            }
+        }
+
+        &__title {
+            @include flex($jc: center);
+            margin: pxToRem(24px) 0 0 pxToRem(24px);
+            font-weight: 600;
+            font-size: pxToRem(24px);
+            padding-bottom: pxToRem(10px);
+        }
+
+        &__added-tasks {
+            margin-left: pxToRem(-20px);
+            &__task {
+                min-height: pxToRem(80px);
+                width: pxToRem(288px);
+                // @include flex($jc: center);
+                margin-left: pxToRem(20px);
+                list-style-type: none;
+                position: relative; 
+                background-color: $color-white;
+                @include border-generator($color-border-gray);
+                box-sizing: border-box;
+                border-radius: pxToRem(2px);
+                margin-bottom: pxToRem(12px);
+                &:nth-child(1) {
+                    margin-top: pxToRem(32px);
+                } 
+
+                &:hover {
+                    background: $color-white;
+                    @include border-generator($color-blue);
+                    box-sizing: border-box;
+                    @include shadow-generator($box-shadow-blue);
+                    border-radius: 2px;
+                }  
+                &__content {
+                    margin: pxToRem(16px) pxToRem(16px) 0 pxToRem(16px);
+                    font-weight: 400;
+                    font-size: pxToRem(18px);
+                    line-height: pxToRem(24px);
+                    // color: $color-dark-gray;
+                    color: red;
+                }
+
+                &__delete {
+                    position: absolute;
+                    bottom: pxToRem(8px);
+                    right: pxToRem(8px);
+                    color: $color-dark-gray;
+
+                    &:hover {
+                        color: rgb(196, 45, 28);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.hold {
+	&:active {
+		&:hover {
+			border: solid 3px $color-dark-blue;
+		}
+	}
+}
+.hovered {
+	border-style: dashed;
+}
+.invisible {
+	display: none;
+}
