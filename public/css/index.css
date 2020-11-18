@@ -37,7 +37,7 @@ body {
   align-items: stretch;
   flex-direction: row;
   flex: 0, 1, auto;
-  width: 100%; }
+  padding: 1.875rem; }
   .app__section1__user-info {
     display: flex;
     justify-content: flex-start;
@@ -45,11 +45,19 @@ body {
     flex-direction: row;
     flex: 0, 1, auto; }
     .app__section1__user-info__first-letter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex: 0, 1, auto;
       height: 3.125rem;
       width: 3.125rem;
       border-radius: 0.25rem;
       background-color: #4786FF;
-      box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+      box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5);
+      font-size: 1.25rem;
+      color: #fff;
+      font-weight: 900; }
     .app__section1__user-info__content {
       margin-left: 1.5rem; }
       .app__section1__user-info__content__full-name {
@@ -100,7 +108,7 @@ body {
 .app__section2 {
   height: 92vh;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: stretch;
   flex-direction: row;
   flex: 0, 1, auto; }
@@ -121,7 +129,7 @@ body {
     margin: 1.5rem 0 0 1.5rem;
     font-weight: 600;
     font-size: 1.5rem; }
-  .app__section2____added-tasks__task {
+  .app__section2__added-tasks {
     list-style-type: none;
     margin: 1rem 0 0 1.5rem;
     padding: 0.625rem 0.5rem 0.625rem 0.625rem;
@@ -132,24 +140,24 @@ body {
     border-radius: 0.125rem;
     min-height: 5rem;
     width: 18rem; }
-    .app__section2____added-tasks__task:nth-child(1) {
+    E
+.app__section2__added-tasks:nth-child(1) {
       margin-top: 2rem; }
-    .app__section2____added-tasks__task__content {
+    .app__section2__added-tasks:hover {
+      background: #fff;
+      border: 0.0625rem solid #4786FF;
+      box-sizing: border-box;
+      box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5);
+      border-radius: 2px; }
+    .app__section2__added-tasks__task__content {
       margin: 1rem 1rem 0 1rem;
-      font-weight: 400;
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       line-height: 1.5rem;
-      color: #54585A; }
-      .app__section2____added-tasks__task__content:hover {
-        background: #fff;
-        border: 0.0625rem solid #4786FF;
-        box-sizing: border-box;
-        box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5);
-        border-radius: 2px; }
-    .app__section2____added-tasks__task__delete {
+      color: red; }
+    .app__section2__added-tasks__task__delete {
       position: absolute;
       bottom: 0.5rem;
       right: 0.5rem;
       color: #54585A; }
-      .app__section2____added-tasks__task__delete:hover {
+      .app__section2__added-tasks__task__delete:hover {
         color: #c42d1c; }

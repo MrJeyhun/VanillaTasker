@@ -32,17 +32,22 @@ body {
 
     &__section1 {
         @include flex($jc: space-between);
-        width: 100%;
+        padding: pxToRem(30px);
 
         &__user-info {
             @include flex();
     
             &__first-letter {
+                @include flex($jc: center, $ai: center);
                 height: pxToRem(50px);
                 width: pxToRem(50px);
                 border-radius: pxToRem(4px);
                 background-color: $color-blue;
                 @include shadow-generator($box-shadow-blue);
+                font-size: pxToRem(20px);
+                color: $color-white;
+                font-weight: 900;
+                // margin: 5px 0px 0px 16px;
             }
     
             &__content {
@@ -107,7 +112,7 @@ body {
 
     &__section2 {
         height: 92vh;
-        @include flex($fdr: row);
+        @include flex($jc: space-around, $fdr: row);
         
         &__taskcolumn {
             width: pxToRem(340px);
@@ -133,38 +138,39 @@ body {
             font-size: pxToRem(24px);
         }
 
-        &____added-tasks {
-            
+        &__added-tasks {
+            list-style-type: none;
+            margin: pxToRem(16px) 0 0 pxToRem(24px);
+            padding: pxToRem(10px) pxToRem(8px) pxToRem(10px) pxToRem(10px);
+            position: relative; 
+            background-color: $color-white;
+            @include border-generator($color-border-gray);
+            box-sizing: border-box;
+            border-radius: pxToRem(2px);E
+            &:nth-child(1) {
+                margin-top: pxToRem(32px);
+            }
+            min-height: pxToRem(80px);
+            width: pxToRem(288px);
+
+            &:hover {
+                background: $color-white;
+                @include border-generator($color-blue);
+                box-sizing: border-box;
+                @include shadow-generator($box-shadow-blue);
+                border-radius: 2px;
+            }
 
             &__task {
-                list-style-type: none;
-                margin: pxToRem(16px) 0 0 pxToRem(24px);
-                padding: pxToRem(10px) pxToRem(8px) pxToRem(10px) pxToRem(10px);
-                position: relative; 
-                background-color: $color-white;
-                @include border-generator($color-border-gray);
-                box-sizing: border-box;
-                border-radius: pxToRem(2px);
-                &:nth-child(1) {
-                    margin-top: pxToRem(32px);
-                }
-                min-height: pxToRem(80px);
-                width: pxToRem(288px);
-
                 &__content {
                     margin: pxToRem(16px) pxToRem(16px) 0 pxToRem(16px);
-                    font-weight: 400;
-                    font-size: pxToRem(20px);
+                    // font-weight: 400;
+                    font-size: pxToRem(18px);
                     line-height: pxToRem(24px);
-                    color: $color-dark-gray;
+                    // color: $color-dark-gray;
+                    color: red;
 
-                    &:hover {
-                        background: $color-white;
-                        @include border-generator($color-blue);
-                        box-sizing: border-box;
-                        @include shadow-generator($box-shadow-blue);
-                        border-radius: 2px;
-                    }
+                    
                 }
 
                 &__delete {
