@@ -16,9 +16,9 @@ body {
         z-index: 10;
     }
 
-    &__modal-btns {
+    // &__modal-btns {
 
-    }
+    // }
 
     &__modal {
         display: none;
@@ -39,9 +39,34 @@ body {
             font-size: pxToRem(20px);
         }
         &__body {
-            @include flex($jc: center, $ai: center);
-            height: 30%;
+            @include flex($jc: center, $ai: center, $fdr: column);
+            height: 40%;
             font-size: pxToRem(14px);
+            
+
+            &__label {
+                font-size: pxToRem(16px);
+                margin-left: pxToRem(-200px);
+            }
+
+            &__input {
+                padding-left: (16px);
+                margin-top: (1px);
+                height: (35px);
+                width: (240px);
+                // border-radius: 0;
+                margin-right: (8px);
+                font-size: (16px);
+                line-height: (19px);
+                @include border-generator($color-blue);
+                ::placeholder {
+                    color: #E4E6E8;
+                }
+                &:focus {
+                    outline: 0;
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
         }
         &__footer {
             @include flex($jc: flex-end, $ai: center);
@@ -56,6 +81,9 @@ body {
                 }
                 &__deletebtn {
                     @include modal-buttons($color-white, $color-pink, $modal-delete-btn-hover-bg);
+                }
+                &__savebtn {
+                    @include modal-buttons($color-white, $color-smoothy-green, $color-light-green);
                 }
             }
 

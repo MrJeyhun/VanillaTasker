@@ -31,12 +31,26 @@
         <div class="app__modal__body">Are you sure to delete this task?</div>
         <div class="app__modal__footer">
           <div class="app__modal__footer__btns">
-            <button class="app__modal__footer__btns__cancelbtn">Cancel</button>
+            <button class="app__modal__footer__btns__cancelbtn" id="cancelDeleteBtn">Cancel</button>
             <button class="app__modal__footer__btns__deletebtn">Yeap!</button>
           </div>
-          
         </div>
       </div>
+
+      <div class="app__modal update">
+        <div class="app__modal__header">Task Update</div>
+        <div class="app__modal__body">
+          <label for="" class="app__modal__body__label">New title:</label>
+          <input type="text" class="app__modal__body__input" id='update-task-input' maxLength="15" placeholder="New title">
+        </div>
+        <div class="app__modal__footer">
+          <div class="app__modal__footer__btns">
+            <button class="app__modal__footer__btns__cancelbtn" id="cancelUpdateBtn">Cancel</button>
+            <button class="app__modal__footer__btns__savebtn">Save!</button>
+          </div>
+        </div>
+      </div>
+
       <div class="app__header">
           <div class="app__header__brand">
             <span class="app__header__brand--pt1">Vanilla</span><span class="app__header__brand--pt2">Tasker</span>
@@ -53,7 +67,7 @@
           </div>
           <div class="app__section1__add-task-form">
             <form>
-              <input type="text" class="app__section1__add-task-form__input" id='add-task-input' placeholder="Add task">
+              <input type="text" class="app__section1__add-task-form__input" id='add-task-input' maxLength='15' placeholder="Add task">
               <input type='submit' class="app__section1__add-task-form__add-task-btn" id="add-task" value='Add'></input>
             </form>
           </div>

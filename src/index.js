@@ -1,7 +1,11 @@
 let modalOverlay = document.querySelector('.app__modal-overlay');
-let modal = document.querySelector('.app__modal');
+let deleteModal = document.querySelector('.delete');
+let updateModal = document.querySelector('.update');
+let updateModalInput = document.getElementById('update-task-input');
 const deleteBtn = document.querySelector('.app__modal__footer__btns__deletebtn');
-const cancelBtn = document.querySelector('.app__modal__footer__btns__cancelbtn');
+const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+const cancelUpdateBtn = document.getElementById('cancelUpdateBtn');
+const saveBtn = document.querySelector('.app__modal__footer__btns__savebtn');
 let taskInputValue = document.getElementById('add-task-input');
 const tasks = document.querySelector('.app__section2__task-info');
 const dropzones = document.querySelectorAll('.dropzone');
@@ -34,6 +38,7 @@ const createTask = (newTask, taskId) => {
 
     let editBtn = document.createElement('span');
     editBtn.className = 'app__section2__added-tasks__task__edit fas fa-fw fa-pen-square';
+    editBtn.addEventListener('click', (event) => {openUpdateModal(event)});
     //TODO: add edit functionality
 
     task.appendChild(taskSec1);
@@ -56,9 +61,10 @@ export const addTask = (event) => {
 }
 
 const openDeleteModal = (event) => {
+    //identify task id from top parent node
     let taskID = event.target.parentNode.parentNode.id; 
     modalOverlay.style.display = 'block';
-    modal.style.display = 'flex';
+    deleteModal.style.display = 'flex';
 
     deleteBtn.addEventListener('click', () => {
         document.getElementById(`${taskID}`).remove();
@@ -66,9 +72,29 @@ const openDeleteModal = (event) => {
     });
 }
 
+const openUpdateModal = (event) => {
+    //identify task id from top parent node
+    let taskID = event.target.parentNode.parentNode.id;
+    let updatedInputValue;
+    modalOverlay.style.display = 'block';
+    updateModal.style.display = 'flex';
+
+    updateModalInput.addEventListener('change', (event) => {
+        updatedInputValue = event.target.value;
+        event.target.value = '';
+    })
+
+    saveBtn.addEventListener('click', () => {
+        document.getElementById(`${taskID}`).childNodes[0].childNodes[0].textContent = updatedInputValue;
+        closeModal();
+    })
+
+}
+
 const closeModal = () => {
     modalOverlay.style.display = 'none';
-    modal.style.display = 'none';
+    deleteModal.style.display = 'none';
+    updateModal.style.display = 'none';
 }
 
 const dragStart = (event) => {
@@ -100,7 +126,8 @@ const dragDrop = (event) => {
 }
 
 //Close modal by clicking 'Cancel'
-cancelBtn.addEventListener('click', closeModal);
+cancelDeleteBtn.addEventListener('click', closeModal);
+cancelUpdateBtn.addEventListener('click', closeModal);
 
 // Adding event listeners to 'Add' button
 document.getElementById('add-task').addEventListener('click', addTask);

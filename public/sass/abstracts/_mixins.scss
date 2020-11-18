@@ -10,7 +10,7 @@
     box-shadow: 0 pxToRem(4px) pxToRem(20px) $color;
 }
 
-@mixin border-generator($color, $psz: none) {
+@mixin border-generator($color) {
     -moz-box-shadow: pxToRem(1px) solid $color;
     border: pxToRem(1px) solid $color;
 }
