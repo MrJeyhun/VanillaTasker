@@ -11,5 +11,21 @@
 }
 
 @mixin border-generator($color) {
+    -moz-box-shadow: pxToRem(1px) solid $color;
     border: pxToRem(1px) solid $color;
+}
+
+@mixin modal-buttons($color, $bg-color, $hover-bg-color) {
+    padding: pxToRem(8px) pxToRem(13px) pxToRem(8px) pxToRem(13px);
+    color: $color;
+    background-color: $bg-color;
+    border: none;
+    transition: all .3s ease;
+    cursor: pointer;
+    border-radius: pxToRem(3px);
+    outline: none;
+
+    &:hover {
+        background-color: $hover-bg-color;
+    }
 }
