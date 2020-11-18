@@ -1,5 +1,7 @@
+let modalOverlay = document.querySelector('.app__modal-overlay');
+let deleteModal = document.querySelector('.delete');
 let taskInputValue = document.getElementById('add-task-input');
-let tasks = document.querySelector('.app__section2__task-info');
+const tasks = document.querySelector('.app__section2__task-info');
 const dropzones = document.querySelectorAll('.dropzone');
 let id = 0;
 let selectedTask;
@@ -26,7 +28,7 @@ const createTask = (newTask, taskId) => {
     let trashBtn = document.createElement('span');
     trashBtn.className = 'app__section2__added-tasks__task__delete fas fa-fw fa-trash';
     //finding task by id, which it belongs to
-    trashBtn.addEventListener('click', (event) => removeTask(event.target.parentNode.parentNode.id));
+    trashBtn.addEventListener('click', () => openDeleteModal());
 
     let editBtn = document.createElement('span');
     editBtn.className = 'app__section2__added-tasks__task__edit fas fa-fw fa-pen-square';
@@ -53,6 +55,11 @@ export const addTask = (event) => {
 
 const removeTask = (id) => {
     document.getElementById(`${id}`).remove();
+}
+
+const openDeleteModal = () => {
+    modalOverlay.style.display = 'block';
+    deleteModal.style.display = 'flex';
 }
 
 const dragStart = (event) => {
