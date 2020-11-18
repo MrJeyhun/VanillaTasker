@@ -1,5 +1,7 @@
 let modalOverlay = document.querySelector('.app__modal-overlay');
-let deleteModal = document.querySelector('.delete');
+let modal = document.querySelector('.app__modal');
+const deleteBtn = document.querySelector('.app__modal__footer__btns__deletebtn');
+const cancelBtn = document.querySelector('.app__modal__footer__btns__cancelbtn');
 let taskInputValue = document.getElementById('add-task-input');
 const tasks = document.querySelector('.app__section2__task-info');
 const dropzones = document.querySelectorAll('.dropzone');
@@ -28,7 +30,7 @@ const createTask = (newTask, taskId) => {
     let trashBtn = document.createElement('span');
     trashBtn.className = 'app__section2__added-tasks__task__delete fas fa-fw fa-trash';
     //finding task by id, which it belongs to
-    trashBtn.addEventListener('click', () => openDeleteModal());
+    trashBtn.addEventListener('click', (event) => openDeleteModal(event));
 
     let editBtn = document.createElement('span');
     editBtn.className = 'app__section2__added-tasks__task__edit fas fa-fw fa-pen-square';
@@ -53,13 +55,20 @@ export const addTask = (event) => {
     }
 }
 
-const removeTask = (id) => {
-    document.getElementById(`${id}`).remove();
+const openDeleteModal = (event) => {
+    let taskID = event.target.parentNode.parentNode.id; 
+    modalOverlay.style.display = 'block';
+    modal.style.display = 'flex';
+
+    deleteBtn.addEventListener('click', () => {
+        document.getElementById(`${taskID}`).remove();
+        closeModal();
+    });
 }
 
-const openDeleteModal = () => {
-    modalOverlay.style.display = 'block';
-    deleteModal.style.display = 'flex';
+const closeModal = () => {
+    modalOverlay.style.display = 'none';
+    modal.style.display = 'none';
 }
 
 const dragStart = (event) => {
@@ -89,6 +98,9 @@ const dragDrop = (event) => {
     event.target.className === 'app__section2__taskcolumn dropzone hovered' && (event.target.className = "app__section2__taskcolumn dropzone");
     event.target.append(selectedTask);
 }
+
+//Close modal by clicking 'Cancel'
+cancelBtn.addEventListener('click', closeModal);
 
 // Adding event listeners to 'Add' button
 document.getElementById('add-task').addEventListener('click', addTask);
