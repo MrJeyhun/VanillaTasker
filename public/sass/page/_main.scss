@@ -228,6 +228,28 @@ body {
                 margin-left: 0;
             }
 
+            &__status {
+                position: absolute;
+                bottom: pxToRem(8px);
+                left: pxToRem(8px);
+                padding: pxToRem(6px) pxToRem(12px);
+                font-size: pxToRem(14px);
+                border-radius: pxToRem(4px);
+            }
+
+            .ready {
+                background-color: $task-status-ready-bg;
+                color: $task-status-ready-color;
+            }
+            .in-progress {
+                background-color: $task-status-inprogress-bg;
+                color: $task-status-inprogress-color;
+            }
+            .done {
+                background-color: $task-status-done-bg;
+                color: $task-status-done-color;
+            }
+
             &::-webkit-scrollbar {
                 width: 6px;
 	            background-color: $color-white;
