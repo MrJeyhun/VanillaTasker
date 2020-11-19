@@ -12,6 +12,8 @@ const dropzones = document.querySelectorAll('.dropzone');
 let id = 0;
 let selectedTask;
 
+// let status = document.getElementById('ready-tasks');
+
 
 const createTask = (newTask, taskId) => {
     let task = document.createElement('li');
@@ -24,7 +26,22 @@ const createTask = (newTask, taskId) => {
     task.setAttribute("draggable", "true");
 
     task.addEventListener('dragstart', dragStart);
-    task.addEventListener('dragend', dragEnd);
+    task.addEventListener('dragend', (event) => {
+        dragEnd(event);
+        //Which dropzone task belongs to
+        let belongsTo = status.parentNode.parentNode.parentNode;
+
+        belongsTo.id == 'ready-tasks' ? (
+            status.textContent = 'Task',
+            status.className = 'app__section2__task-info__status ready'
+        ) : belongsTo.id == 'in-progress-tasks' ? (
+            status.className = 'app__section2__task-info__status in-progress',
+            status.textContent = 'In Progress'
+        ) : belongsTo.id == 'done-tasks' ? (
+            status.className = 'app__section2__task-info__status done',
+            status.textContent = 'Done'
+        ) : null
+    });
 
     let taskContent = document.createElement('div');
     taskContent.className = 'app__section2__added-tasks__task__content';
@@ -39,13 +56,17 @@ const createTask = (newTask, taskId) => {
     let editBtn = document.createElement('span');
     editBtn.className = 'app__section2__added-tasks__task__edit fas fa-fw fa-pen-square';
     editBtn.addEventListener('click', (event) => {openUpdateModal(event)});
-    //TODO: add edit functionality
+
+    let status = document.createElement('div');
+    status.textContent = 'Task',
+    status.className = 'app__section2__task-info__status ready'
 
     task.appendChild(taskSec1);
     task.appendChild(taskSec2);
     taskSec1.appendChild(taskContent);
     taskSec2.appendChild(trashBtn);
     taskSec2.appendChild(editBtn);
+    taskSec2.appendChild(status);
 
     tasks.insertBefore(task, tasks.childNodes[0]);
 }

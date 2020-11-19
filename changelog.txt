@@ -1,0 +1,13 @@
+//DONE: 
+1. Style app ui
+2. Add 'task adding' functionality
+3. Add 'drag and drop' functionality
+4. Create task buttons and add its' functionality
+5. Create modal for each deleting and updating task
+6. Add  update and delete functionality to tasks
+8. Add status info feature to tasks and style it
+
+//TODO: 
+1. Add keypress enter to modal input
+
+//FIXME:

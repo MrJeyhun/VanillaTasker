@@ -29,3 +29,14 @@
         background-color: $hover-bg-color;
     }
 }
+
+@mixin status-info($color, $bg-color) {
+    position: absolute;
+    bottom: pxToRem(8px);
+    left: pxToRem(8px);
+    padding: pxToRem(6px) pxToRem(12px);
+    font-size: pxToRem(14px);
+    border-radius: pxToRem(4px);
+    color: $color;
+    background-color: $bg-color;
+}
