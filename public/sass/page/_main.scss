@@ -224,6 +224,9 @@ body {
             overflow-y: scroll;
             -moz-box-shadow: 0 0 pxToRem(8px) 0 ($box-shadow-blue);
             box-shadow: 0 0 pxToRem(8px) 0 ($box-shadow-blue);
+            scrollbar-color: $color-blue $color-white;
+            scrollbar-width: thin;
+
             &:nth-child(1) {
                 margin-left: 0;
             }
@@ -251,8 +254,8 @@ body {
             }
 
             &::-webkit-scrollbar {
-                width: 6px;
-	            background-color: $color-white;
+                width: pxToRem(6px);
+	            background-color: $color-white; 
             }
             &::-webkit-scrollbar-thumb {
 	            background-color: $color-blue;

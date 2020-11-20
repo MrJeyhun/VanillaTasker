@@ -234,7 +234,9 @@ body {
       background-color: white;
       overflow-y: scroll;
       -moz-box-shadow: 0 0 0.5rem 0 rgba(71, 134, 255, 0.5);
-      box-shadow: 0 0 0.5rem 0 rgba(71, 134, 255, 0.5); }
+      box-shadow: 0 0 0.5rem 0 rgba(71, 134, 255, 0.5);
+      scrollbar-color: #4786FF #fff;
+      scrollbar-width: thin; }
       .app__section2__task-info:nth-child(1) {
         margin-left: 0; }
       .app__section2__task-info__status {
@@ -254,7 +256,7 @@ body {
         background-color: #E1F0FF;
         color: #3699FF; }
       .app__section2__task-info::-webkit-scrollbar {
-        width: 6px;
+        width: 0.375rem;
         background-color: #fff; }
       .app__section2__task-info::-webkit-scrollbar-thumb {
         background-color: #4786FF; }
