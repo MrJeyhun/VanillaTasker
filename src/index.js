@@ -50,7 +50,6 @@ const createTask = (newTask, taskId) => {
     //initialize delete button
     let trashBtn = document.createElement('span');
     trashBtn.className = 'app__section2__added-tasks__task__delete fas fa-fw fa-trash';
-    //finding task by id, which it belongs to
     trashBtn.addEventListener('click', (event) => openDeleteModal(event));
 
     let editBtn = document.createElement('span');
