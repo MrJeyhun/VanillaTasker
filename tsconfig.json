@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./src/"
+        "outDir": "./src/js"
     },
     "include": ["./src/ts/"],
     "exclude": []
