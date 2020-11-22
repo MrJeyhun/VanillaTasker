@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile:sass": "node-sass public/sass/index.scss public/css/index.css -w",
+    "compile:typescript": "tsc --watch --target es6",
     "start": "node server/server.js"
   },
   "author": "MrJeyhun",
@@ -12,5 +13,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "node-sass": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.2"
   }
 }

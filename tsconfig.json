@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "outDir": "./src/js"
+    },
+    "include": ["./src/ts/"],
+    "exclude": []
+}
