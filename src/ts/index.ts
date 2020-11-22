@@ -1,21 +1,19 @@
-let modalOverlay = document.querySelector('.app__modal-overlay');
-let deleteModal = document.querySelector('.delete');
-let updateModal = document.querySelector('.update');
-let updateModalInput = document.getElementById('update-task-input');
-const deleteBtn = document.querySelector('.app__modal__footer__btns__deletebtn');
-const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
-const cancelUpdateBtn = document.getElementById('cancelUpdateBtn');
-const saveBtn = document.querySelector('.app__modal__footer__btns__savebtn');
-let taskInputValue = document.getElementById('add-task-input');
-const tasks = document.querySelector('.app__section2__task-info');
+let modalOverlay: HTMLElement = document.querySelector('.app__modal-overlay');
+let deleteModal: HTMLElement = document.querySelector('.delete');
+let updateModal: HTMLElement = document.querySelector('.update');
+let updateModalInput: HTMLElement = document.getElementById('update-task-input');
+const deleteBtn: HTMLElement = document.querySelector('.app__modal__footer__btns__deletebtn');
+const cancelDeleteBtn: HTMLElement = document.getElementById('cancelDeleteBtn');
+const cancelUpdateBtn: HTMLElement = document.getElementById('cancelUpdateBtn');
+const saveBtn: HTMLElement = document.querySelector('.app__modal__footer__btns__savebtn');
+//FIXME:
+let taskInputValue: any = document.getElementById('add-task-input');
+const tasks: HTMLElement = document.querySelector('.app__section2__task-info');
 const dropzones = document.querySelectorAll('.dropzone');
-let id = 0;
-let selectedTask;
+let id: number = 0;
+let selectedTask: HTMLElement;
 
-// let status = document.getElementById('ready-tasks');
-
-
-const createTask = (newTask, taskId) => {
+const createTask = (newTask: string, taskId: string) => {
     let task = document.createElement('li');
     task.className = 'app__section2__added-tasks__task fill';
     let taskSec1 = document.createElement('div');
@@ -29,18 +27,7 @@ const createTask = (newTask, taskId) => {
     task.addEventListener('dragend', (event) => {
         dragEnd(event);
         //Which dropzone task belongs to
-        let belongsTo = status.parentNode.parentNode.parentNode;
-
-        belongsTo.id == 'ready-tasks' ? (
-            status.textContent = 'Task',
-            status.className = 'app__section2__task-info__status ready'
-        ) : belongsTo.id == 'in-progress-tasks' ? (
-            status.className = 'app__section2__task-info__status in-progress',
-            status.textContent = 'In Progress'
-        ) : belongsTo.id == 'done-tasks' ? (
-            status.className = 'app__section2__task-info__status done',
-            status.textContent = 'Done'
-        ) : null
+        
     });
 
     let taskContent = document.createElement('div');
@@ -70,13 +57,13 @@ const createTask = (newTask, taskId) => {
     tasks.insertBefore(task, tasks.childNodes[0]);
 }
 
-const addTask = (event) => {
+const addTask = (event: Event) => {
     event.preventDefault();
     if (taskInputValue != '') {
-        console.log('test', taskInputValue);
+        let addTaskInputValue = (<HTMLInputElement>document.getElementById('add-task-input'))?.value;
         id++;
         createTask(taskInputValue, id);
-        document.getElementById('add-task-input').value = '';
+        addTaskInputValue = '';
     }
 }
 
@@ -117,32 +104,49 @@ const closeModal = () => {
     updateModal.style.display = 'none';
 }
 
-const dragStart = (event) => {
-    event.target.className += ' hold';
-    selectedTask = event.target;
-    setTimeout(() => (event.target.className = 'invisible'), 0);
+const whichBelongsTo = (status: HTMLElement) => {
+    //FIXME:
+    let belongsTo: any = status.parentNode.parentNode.parentNode;
+
+    belongsTo.id == 'ready-tasks' ? (
+        status.textContent = 'Task',
+        status.className = 'app__section2__task-info__status ready'
+    ) : belongsTo.id == 'in-progress-tasks' ? (
+        status.className = 'app__section2__task-info__status in-progress',
+        status.textContent = 'In Progress'
+    ) : belongsTo.id == 'done-tasks' ? (
+        status.className = 'app__section2__task-info__status done',
+        status.textContent = 'Done'
+    ) : null
 }
 
-const dragEnd = (event) => {
-    event.target.className = 'app__section2__added-tasks__task fill';
+const dragStart = (event: DragEvent) => {
+    let targetElement: HTMLElement = (<HTMLElement>event.target);
+    targetElement.className += ' hold';
+    selectedTask = targetElement;
+    setTimeout(() => (targetElement.className = 'invisible'), 0);
 }
 
-const dragEnter = (event) => {
+const dragEnd = (event: DragEvent) => {
+    (<HTMLElement>event.target).className = 'app__section2__added-tasks__task fill';
+}
+
+const dragEnter = (event: DragEvent) => {
     event.preventDefault();
-    event.target.className === 'app__section2__taskcolumn dropzone' && (event.target.className += 'hovered');   
+    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone' && (event.target.className += 'hovered');   
 }
 
-const dragOver = (event) => {
+const dragOver = (event: DragEvent) => {
     event.preventDefault();
 }
 
-const dragLeave = (event) => {
-    event.target.className === 'app__section2__taskcolumn dropzone hovered' && (event.target.className = "app__section2__taskcolumn dropzone")
+const dragLeave = (event: DragEvent) => {
+    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone hovered' && (event.target.className = "app__section2__taskcolumn dropzone")
 }
 
-const dragDrop = (event) => {
-    event.target.className === 'app__section2__taskcolumn dropzone hovered' && (event.target.className = "app__section2__taskcolumn dropzone");
-    event.target.append(selectedTask);
+const dragDrop = (event: DragEvent) => {
+    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone hovered' && (event.target.className = "app__section2__taskcolumn dropzone");
+    (<HTMLElement>event.target).append(selectedTask);
 }
 
 //Close modal by clicking 'Cancel'
