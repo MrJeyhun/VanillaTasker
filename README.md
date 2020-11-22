@@ -1,5 +1,5 @@
 # VanillaTasker
-Draggable to-do list app, created with Vanilla JS
+Draggable to-do list app, created with TypeScript
 
 ## Installation
 Install all packages
