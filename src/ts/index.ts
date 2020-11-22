@@ -1,33 +1,32 @@
 let modalOverlay: HTMLElement = document.querySelector('.app__modal-overlay');
 let deleteModal: HTMLElement = document.querySelector('.delete');
 let updateModal: HTMLElement = document.querySelector('.update');
-let updateModalInput: HTMLElement = document.getElementById('update-task-input');
+let updateModalInput = (<HTMLInputElement>document.getElementById('update-task-input'));
 const deleteBtn: HTMLElement = document.querySelector('.app__modal__footer__btns__deletebtn');
 const cancelDeleteBtn: HTMLElement = document.getElementById('cancelDeleteBtn');
 const cancelUpdateBtn: HTMLElement = document.getElementById('cancelUpdateBtn');
 const saveBtn: HTMLElement = document.querySelector('.app__modal__footer__btns__savebtn');
-//FIXME:
-let taskInputValue: any = document.getElementById('add-task-input');
+let taskInput = (<HTMLInputElement>document.getElementById('add-task-input'));
 const tasks: HTMLElement = document.querySelector('.app__section2__task-info');
-const dropzones = document.querySelectorAll('.dropzone');
+const dropzones: HTMLElement[] = Array.prototype.slice.call(document.querySelectorAll('.dropzone'));
 let id: number = 0;
 let selectedTask: HTMLElement;
 
-const createTask = (newTask: string, taskId: string) => {
+const createTask = (newTask: string, taskId: number) => {
     let task = document.createElement('li');
     task.className = 'app__section2__added-tasks__task fill';
     let taskSec1 = document.createElement('div');
     let taskSec2 = document.createElement('div');
     taskSec1.className = 'app__section2__task-info__sec1';
     taskSec2.className = 'app__section2__task-info__sec2';
-    task.id = taskId;
+    task.id = `${taskId}`
     task.setAttribute("draggable", "true");
 
     task.addEventListener('dragstart', dragStart);
     task.addEventListener('dragend', (event) => {
         dragEnd(event);
         //Which dropzone task belongs to
-        
+        whichBelongsTo(status);
     });
 
     let taskContent = document.createElement('div');
@@ -59,40 +58,40 @@ const createTask = (newTask: string, taskId: string) => {
 
 const addTask = (event: Event) => {
     event.preventDefault();
-    if (taskInputValue != '') {
+    if (taskInput.value != '') {
         let addTaskInputValue = (<HTMLInputElement>document.getElementById('add-task-input'))?.value;
         id++;
-        createTask(taskInputValue, id);
-        addTaskInputValue = '';
+        createTask(taskInput.value, id);
+        taskInput.value = '';
     }
 }
 
-const openDeleteModal = (event) => {
+const openDeleteModal = (event: Event) => {
     //identify task id from top parent node
-    let taskID = event.target.parentNode.parentNode.id; 
+    let taskBelong = (<HTMLElement>event.target)?.parentNode?.parentNode; 
     modalOverlay.style.display = 'block';
     deleteModal.style.display = 'flex';
 
     deleteBtn.addEventListener('click', () => {
-        document.getElementById(`${taskID}`).remove();
+        document.getElementById(`${(<HTMLElement>taskBelong).id}`).remove();
         closeModal();
     });
 }
 
-const openUpdateModal = (event) => {
+const openUpdateModal = (event: Event) => {
     //identify task id from top parent node
-    let taskID = event.target.parentNode.parentNode.id;
-    let updatedInputValue;
+    let taskBelong = (<HTMLElement>event.target)?.parentNode?.parentNode;
+    let updatedInputValue: string;
     modalOverlay.style.display = 'block';
     updateModal.style.display = 'flex';
 
-    updateModalInput.addEventListener('change', (event) => {
-        updatedInputValue = event.target.value;
-        event.target.value = '';
+    updateModalInput.addEventListener('change', (event: Event) => {
+        updatedInputValue = (<HTMLInputElement>event.target).value;
+        (<HTMLInputElement>event.target).value = '';
     })
 
     saveBtn.addEventListener('click', () => {
-        document.getElementById(`${taskID}`).childNodes[0].childNodes[0].textContent = updatedInputValue;
+        document.getElementById(`${(<HTMLElement>taskBelong).id}`).childNodes[0].childNodes[0].textContent = updatedInputValue;
         closeModal();
     })
 
@@ -102,11 +101,10 @@ const closeModal = () => {
     modalOverlay.style.display = 'none';
     deleteModal.style.display = 'none';
     updateModal.style.display = 'none';
-}
+} 
 
 const whichBelongsTo = (status: HTMLElement) => {
-    //FIXME:
-    let belongsTo: any = status.parentNode.parentNode.parentNode;
+    let belongsTo = (<HTMLElement>status.parentNode.parentNode.parentNode);
 
     belongsTo.id == 'ready-tasks' ? (
         status.textContent = 'Task',
@@ -133,7 +131,7 @@ const dragEnd = (event: DragEvent) => {
 
 const dragEnter = (event: DragEvent) => {
     event.preventDefault();
-    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone' && (event.target.className += 'hovered');   
+    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone' && ((<HTMLElement>event.target).className += 'hovered');   
 }
 
 const dragOver = (event: DragEvent) => {
@@ -141,11 +139,11 @@ const dragOver = (event: DragEvent) => {
 }
 
 const dragLeave = (event: DragEvent) => {
-    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone hovered' && (event.target.className = "app__section2__taskcolumn dropzone")
+    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone hovered' && ((<HTMLElement>event.target).className = "app__section2__taskcolumn dropzone")
 }
 
 const dragDrop = (event: DragEvent) => {
-    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone hovered' && (event.target.className = "app__section2__taskcolumn dropzone");
+    (<HTMLElement>event.target).className === 'app__section2__taskcolumn dropzone hovered' && ((<HTMLElement>event.target).className = "app__section2__taskcolumn dropzone");
     (<HTMLElement>event.target).append(selectedTask);
 }
 
@@ -157,7 +155,7 @@ cancelUpdateBtn.addEventListener('click', closeModal);
 document.getElementById('add-task').addEventListener('click', addTask);
 
 //Listening add task input
-taskInputValue.addEventListener('change', (event) => taskInputValue = event.target.value);
+taskInput.addEventListener('change', (event: Event) => taskInput.value = (<HTMLInputElement>event.target).value);
 
 //Apply drag&drop events to all dropzones
 for ( const dropzone of dropzones ) {
