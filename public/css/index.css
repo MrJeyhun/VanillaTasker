@@ -1,6 +1,330 @@
-.app__header {
-  background-color: #fff; }
+body {
+  overflow-y: hidden; }
 
-.app__board {
-  background-color: #F5F7FA;
-  height: 100%; }
+.app {
+  font-family: 'Poppins', sans-serif; }
+  .app__modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10; }
+  .app__modal {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 31.25rem;
+    height: 13.4375rem;
+    background-color: #fff;
+    z-index: 100; }
+    .app__modal__header {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      flex: 0, 1, auto;
+      padding-left: 2.1875rem;
+      height: 30%;
+      font-size: 1.25rem; }
+    .app__modal__body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex: 0, 1, auto;
+      height: 40%;
+      font-size: 0.875rem; }
+      .app__modal__body__label {
+        font-size: 1rem;
+        margin-left: -12.5rem; }
+      .app__modal__body__input {
+        padding-left: 16px;
+        margin-top: 1px;
+        height: 35px;
+        width: 240px;
+        margin-right: 8px;
+        font-size: 16px;
+        line-height: 19px;
+        -moz-box-shadow: 0.0625rem solid #4786FF;
+        border: 0.0625rem solid #4786FF; }
+        .app__modal__body__input ::placeholder {
+          color: #E4E6E8; }
+        .app__modal__body__input:focus {
+          outline: 0;
+          box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+    .app__modal__footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-direction: row;
+      flex: 0, 1, auto;
+      height: 40%; }
+      .app__modal__footer__btns {
+        width: 27%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-direction: row;
+        flex: 0, 1, auto;
+        margin-right: 10px; }
+        .app__modal__footer__btns__cancelbtn {
+          padding: 0.5rem 0.8125rem 0.5rem 0.8125rem;
+          color: #7e8299;
+          background-color: #f3f6f9;
+          border: none;
+          transition: all .3s ease;
+          cursor: pointer;
+          border-radius: 0.1875rem;
+          outline: none; }
+          .app__modal__footer__btns__cancelbtn:hover {
+            background-color: #e4e6ef; }
+        .app__modal__footer__btns__deletebtn {
+          padding: 0.5rem 0.8125rem 0.5rem 0.8125rem;
+          color: #fff;
+          background-color: #FF008A;
+          border: none;
+          transition: all .3s ease;
+          cursor: pointer;
+          border-radius: 0.1875rem;
+          outline: none; }
+          .app__modal__footer__btns__deletebtn:hover {
+            background-color: #ff000d; }
+        .app__modal__footer__btns__savebtn {
+          padding: 0.5rem 0.8125rem 0.5rem 0.8125rem;
+          color: #fff;
+          background-color: #00fd15;
+          border: none;
+          transition: all .3s ease;
+          cursor: pointer;
+          border-radius: 0.1875rem;
+          outline: none; }
+          .app__modal__footer__btns__savebtn:hover {
+            background-color: #00cf1ca2; }
+    .app__modal div:not(:last-child) {
+      border-bottom: 1px solid #ebedf3; }
+  .app__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: row;
+    flex: 0, 1, auto;
+    background-color: #fff;
+    width: 100%;
+    height: 8vh;
+    border-bottom: 0.0625rem solid lightgray; }
+    .app__header__brand {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+      flex: 0, 1, auto;
+      padding: 0.3125rem 0 0.3125rem 0.625rem;
+      font-family: 'Pacifico', cursive;
+      font-style: normal;
+      font-size: 1.5rem;
+      line-height: 1.8125rem;
+      color: #4786FF; }
+  .app__board {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    flex: 0, 1, auto;
+    background-color: #F5F7FA; }
+  .app__section1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: row;
+    flex: 0, 1, auto;
+    padding: 1.875rem; }
+    .app__section1__user-info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-direction: row;
+      flex: 0, 1, auto; }
+      .app__section1__user-info__first-letter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex: 0, 1, auto;
+        height: 3.125rem;
+        width: 3.125rem;
+        border-radius: 0.25rem;
+        background-color: #4786FF;
+        box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5);
+        font-size: 1.25rem;
+        color: #fff;
+        font-weight: 900; }
+      .app__section1__user-info__content {
+        margin-left: 1.5rem; }
+        .app__section1__user-info__content__full-name {
+          font-weight: 500;
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+          color: #1B2437; }
+        .app__section1__user-info__content__profession {
+          font-style: italic;
+          font-size: 1rem;
+          line-height: 1.1875rem;
+          color: #AAACAF; }
+    .app__section1__add-task-form {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-direction: row;
+      flex: 0, 1, auto; }
+      .app__section1__add-task-form__input {
+        padding-left: 16px;
+        margin-top: 1px;
+        height: 46px;
+        width: 240px;
+        margin-right: 8px;
+        font-size: 16px;
+        line-height: 19px;
+        border: none; }
+        .app__section1__add-task-form__input ::placeholder {
+          color: #E4E6E8; }
+        .app__section1__add-task-form__input:focus {
+          outline: 0;
+          box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+      .app__section1__add-task-form__add-task-btn {
+        background: #4786FF;
+        border: none;
+        border-radius: 0.25rem;
+        width: 3.125rem;
+        height: 3.125rem;
+        font-weight: 900;
+        font-size: 0.875rem;
+        line-height: 1.8125rem;
+        color: #fff;
+        cursor: pointer; }
+        .app__section1__add-task-form__add-task-btn:focus {
+          outline: 0; }
+        .app__section1__add-task-form__add-task-btn:hover {
+          box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+  .app__section2 {
+    height: 92vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-direction: row;
+    flex: 0, 1, auto; }
+    .app__section2__column {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      flex-direction: column;
+      flex: 0, 1, auto; }
+    .app__section2__task-info {
+      width: 21.25rem;
+      height: 32.5rem;
+      background: #fff;
+      box-sizing: border-box;
+      border-radius: 0.0625rem;
+      margin-left: 2.5rem;
+      background-color: white;
+      overflow-y: scroll;
+      -moz-box-shadow: 0 0 0.5rem 0 rgba(71, 134, 255, 0.5);
+      box-shadow: 0 0 0.5rem 0 rgba(71, 134, 255, 0.5);
+      scrollbar-color: #4786FF #fff;
+      scrollbar-width: thin; }
+      .app__section2__task-info:nth-child(1) {
+        margin-left: 0; }
+      .app__section2__task-info__status {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 0.5rem;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+        border-radius: 0.25rem; }
+      .app__section2__task-info .ready {
+        background-color: #FFF4DE;
+        color: #FFA800; }
+      .app__section2__task-info .in-progress {
+        background-color: #C9F7F5;
+        color: #1BC5BD; }
+      .app__section2__task-info .done {
+        background-color: #E1F0FF;
+        color: #3699FF; }
+      .app__section2__task-info::-webkit-scrollbar {
+        width: 0.375rem;
+        background-color: #fff; }
+      .app__section2__task-info::-webkit-scrollbar-thumb {
+        background-color: #4786FF; }
+      .app__section2__task-info__sec1 {
+        height: 3.125rem; }
+      .app__section2__task-info__sec2 {
+        height: 1.5625rem; }
+    .app__section2__title {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-direction: row;
+      flex: 0, 1, auto;
+      margin: 1.5rem 0 0 1.5rem;
+      font-weight: 600;
+      font-size: 1.5rem;
+      padding-bottom: 0.625rem; }
+    .app__section2__added-tasks {
+      margin-left: -1.25rem; }
+      .app__section2__added-tasks__task {
+        min-height: 5rem;
+        width: 18rem;
+        margin-left: 1.25rem;
+        list-style-type: none;
+        position: relative;
+        -moz-box-shadow: 0.0625rem solid #EBEDF0;
+        border: 0.0625rem solid #EBEDF0;
+        box-sizing: border-box;
+        margin-bottom: 0.75rem;
+        border-radius: 0.4375rem;
+        background-color: #F5F7FA;
+        transition: all .3s ease; }
+        .app__section2__added-tasks__task:nth-child(1) {
+          margin-top: 2rem; }
+        .app__section2__added-tasks__task:hover {
+          box-sizing: border-box;
+          box-shadow: 0 0.25rem 1.25rem rgba(71, 134, 255, 0.5); }
+        .app__section2__added-tasks__task__content {
+          margin: 1rem 1rem 0 1rem;
+          font-weight: 400;
+          font-size: 1.125rem;
+          line-height: 1.5rem;
+          color: #72687C; }
+        .app__section2__added-tasks__task__delete {
+          position: absolute;
+          bottom: 0.5rem;
+          right: 0.5rem;
+          transition: all .3s ease;
+          color: #FF008A;
+          cursor: pointer; }
+          .app__section2__added-tasks__task__delete:hover {
+            color: #c42d1c; }
+        .app__section2__added-tasks__task__edit {
+          position: absolute;
+          bottom: 0.3125rem;
+          right: 1.875rem;
+          transition: all .3s ease;
+          color: #00fd15;
+          font-size: 1.25rem;
+          cursor: pointer; }
+          .app__section2__added-tasks__task__edit:hover {
+            color: #00cf1ca2; }
+
+.hold:active:hover {
+  border: solid 3px blue; }
+
+.hovered {
+  border-style: dashed; }
+
+.invisible {
+  display: none; }

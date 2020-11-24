@@ -1,0 +1,357 @@
+body {
+    overflow-y: hidden;
+}
+
+.app {
+    font-family: 'Poppins', sans-serif;
+
+    &__modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $modal-overlay;
+        z-index: 10;
+    }
+
+    // &__modal-btns {
+
+    // }
+
+    &__modal {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: pxToRem(500px);
+        height: pxToRem(215px);
+        background-color: $color-white;
+        z-index: 100;
+
+        &__header {
+            @include flex($jc: flex-start, $ai: center);
+            padding-left: pxToRem(35px);
+            height: 30%;
+            font-size: pxToRem(20px);
+        }
+        &__body {
+            @include flex($jc: center, $ai: center, $fdr: column);
+            height: 40%;
+            font-size: pxToRem(14px);
+            
+
+            &__label {
+                font-size: pxToRem(16px);
+                margin-left: pxToRem(-200px);
+            }
+
+            &__input {
+                padding-left: (16px);
+                margin-top: (1px);
+                height: (35px);
+                width: (240px);
+                // border-radius: 0;
+                margin-right: (8px);
+                font-size: (16px);
+                line-height: (19px);
+                @include border-generator($color-blue);
+                ::placeholder {
+                    color: #E4E6E8;
+                }
+                &:focus {
+                    outline: 0;
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
+        }
+        &__footer {
+            @include flex($jc: flex-end, $ai: center);
+            height: 40%;
+
+            &__btns {
+                width: 27%;
+                @include flex($jc: space-between);
+                margin-right: 10px;
+                &__cancelbtn {
+                    @include modal-buttons($modal-cancel-btn-color, $modal-cancel-btn-bg, $modal-cancel-btn-bg-hover)
+                }
+                &__deletebtn {
+                    @include modal-buttons($color-white, $color-pink, $modal-delete-btn-hover-bg);
+                }
+                &__savebtn {
+                    @include modal-buttons($color-white, $color-smoothy-green, $color-light-green);
+                }
+            }
+
+            
+        }
+
+        div {
+            &:not(:last-child) {
+                border-bottom: 1px solid $modal-section-border;
+            }
+        }
+    }
+
+    &__header {
+        @include flex();
+        background-color: $color-white;
+        width: 100%;
+        height: 8vh;
+        border-bottom: pxToRem(1px) solid $color-light-gray;
+
+       
+        &__brand {
+            @include flex($ai: center);
+            padding: pxToRem(5px) 0 pxToRem(5px) pxToRem(10px);
+            font-family: 'Pacifico', cursive;
+            // margin-top: pxToRem(22px);
+            font-style: normal;
+            font-size: pxToRem(24px);
+            line-height: pxToRem(29px);
+            color: $color-blue;
+        }
+    }
+
+    &__board {
+        @include flex($fdr: column);
+        background-color: $color-milky;
+        // margin-top: pxToRem(60px);
+    }
+
+    &__section1 {
+        @include flex($jc: space-between);
+        padding: pxToRem(30px);
+
+        &__user-info {
+            @include flex();
+    
+            &__first-letter {
+                @include flex($jc: center, $ai: center);
+                height: pxToRem(50px);
+                width: pxToRem(50px);
+                border-radius: pxToRem(4px);
+                background-color: $color-blue;
+                @include shadow-generator($box-shadow-blue);
+                font-size: pxToRem(20px);
+                color: $color-white;
+                font-weight: 900;
+                // margin: 5px 0px 0px 16px;
+            }
+    
+            &__content {
+                margin-left: pxToRem(24px);
+    
+                &__full-name {
+                    font-weight: 500;
+                    font-size: pxToRem(20px);
+                    line-height: pxToRem(24px);
+                    color: $color-light-black;
+                }
+                &__profession {
+                    font-style: italic;
+                    font-size: pxToRem(16px);
+                    line-height: pxToRem(19px);
+                    color: $color-medium-gray;
+                }
+            }
+        }
+
+        &__add-task-form {
+            @include flex();
+
+            &__input {
+                padding-left: (16px);
+                margin-top: (1px);
+                height: (46px);
+                width: (240px);
+                // border-radius: 0;
+                margin-right: (8px);
+                font-size: (16px);
+                line-height: (19px);
+                border: none;
+                ::placeholder {
+                    color: #E4E6E8;
+                }
+                &:focus {
+                    outline: 0;
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
+
+            &__add-task-btn {
+                background: $color-blue;
+                border: none;
+                border-radius: pxToRem(4px);
+                width: pxToRem(50px);
+                height: pxToRem(50px);
+                font-weight: 900; 
+                font-size: pxToRem(14px);
+                line-height: pxToRem(29px);
+                color: $color-white;
+                cursor: pointer;
+                &:focus {
+                    outline: 0;
+                }
+                &:hover {
+                    @include shadow-generator($box-shadow-blue);
+                }
+            }
+        }
+    }
+
+    &__section2 {
+        height: 92vh;
+        @include flex($jc: space-around, $fdr: row);
+
+        &__column {
+            @include flex($fdr: column);
+        }
+        
+        &__task-info {
+            width: pxToRem(340px);
+            height: pxToRem(520px);
+            // flex: 0 0 auto;
+            background: $color-white;
+            box-sizing: border-box;
+            border-radius: pxToRem(1px);
+            margin-left: pxToRem(40px);
+            background-color: white;
+            overflow-y: scroll;
+            -moz-box-shadow: 0 0 pxToRem(8px) 0 ($box-shadow-blue);
+            box-shadow: 0 0 pxToRem(8px) 0 ($box-shadow-blue);
+            scrollbar-color: $color-blue $color-white;
+            scrollbar-width: thin;
+
+            &:nth-child(1) {
+                margin-left: 0;
+            }
+
+            &__status {
+                position: absolute;
+                bottom: pxToRem(8px);
+                left: pxToRem(8px);
+                padding: pxToRem(6px) pxToRem(12px);
+                font-size: pxToRem(14px);
+                border-radius: pxToRem(4px);
+            }
+
+            .ready {
+                background-color: $task-status-ready-bg;
+                color: $task-status-ready-color;
+            }
+            .in-progress {
+                background-color: $task-status-inprogress-bg;
+                color: $task-status-inprogress-color;
+            }
+            .done {
+                background-color: $task-status-done-bg;
+                color: $task-status-done-color;
+            }
+
+            &::-webkit-scrollbar {
+                width: pxToRem(6px);
+	            background-color: $color-white; 
+            }
+            &::-webkit-scrollbar-thumb {
+	            background-color: $color-blue;
+            }
+
+            &__sec1 {
+                height: pxToRem(50px);
+            }
+            &__sec2 {
+                height: pxToRem(25px);
+            }
+        }
+
+        &__title {
+            @include flex($jc: center);
+            margin: pxToRem(24px) 0 0 pxToRem(24px);
+            font-weight: 600;
+            font-size: pxToRem(24px);
+            padding-bottom: pxToRem(10px);
+        }
+
+        &__added-tasks {
+            margin-left: pxToRem(-20px);
+            &__task {
+                min-height: pxToRem(80px);
+                width: pxToRem(288px);
+                margin-left: pxToRem(20px);
+                list-style-type: none;
+                position: relative; 
+                @include border-generator($color-border-gray);
+                box-sizing: border-box;
+                margin-bottom: pxToRem(12px);
+                border-radius: pxToRem(7px);
+                background-color: $color-milky;
+                transition: all .3s ease;
+
+                &:nth-child(1) {
+                    margin-top: pxToRem(32px);
+                } 
+
+                &:hover {
+                    box-sizing: border-box;
+                    @include shadow-generator($box-shadow-blue);
+                }  
+                &__content {
+                    margin: pxToRem(16px) pxToRem(16px) 0 pxToRem(16px);
+                    font-weight: 400;
+                    font-size: pxToRem(18px);
+                    line-height: pxToRem(24px);
+                    // color: $color-dark-gray;
+                    color:$color-content-gray;
+                }
+
+                &__delete {
+                    position: absolute;
+                    bottom: pxToRem(8px);
+                    right: pxToRem(8px);
+                    transition: all .3s ease;
+                    color: $color-pink;
+                    cursor: pointer;
+
+
+                    &:hover {
+                        color: $color-dark-red;
+                    }
+                }
+
+                &__edit {
+                    position: absolute;
+                    bottom: pxToRem(5px);
+                    right: pxToRem(30px);
+                    transition: all .3s ease;
+                    color: $color-smoothy-green;
+                    font-size: pxToRem(20px);
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $color-light-green;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.hold {
+	&:active {
+		&:hover {
+			border: solid 3px $color-dark-blue;
+		}
+	}
+}
+.hovered {
+	border-style: dashed;
+}
+.invisible {
+	display: none;
+}

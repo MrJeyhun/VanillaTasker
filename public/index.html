@@ -10,11 +10,11 @@
     <link rel="icon" href="./favicon.ico">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/index.css" />
-    <script type="module" src="http://localhost:3000/main.js" defer></script>
+    <script type="module" src="http://localhost:3000/js/index.js" defer></script>
 
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Ubuntu:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;900&display=swap" rel="stylesheet">
     <!-- Font Awesome CDN -->
     <script
       src="https://kit.fontawesome.com/ee4f7cdaa4.js"
@@ -25,43 +25,68 @@
   </head>
   <body>
     <div class="app">
-      <div class="app__header">
-        <nav></nav>
-        <div class="app__navbar">
-          <div class="app__navbar__burger-btn">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <div class="app__navbar__brand">
-            <span class="app__navbar__brand--pt1">Vanilla</span><span class="app__navbar__brand--pt2">Tasker</span>
+      <div class="app__modal-overlay"></div>
+      <div class="app__modal delete">
+        <div class="app__modal__header">Task Delete</div>
+        <div class="app__modal__body">Are you sure to delete this task?</div>
+        <div class="app__modal__footer">
+          <div class="app__modal__footer__btns">
+            <button class="app__modal__footer__btns__cancelbtn" id="cancelDeleteBtn">Cancel</button>
+            <button class="app__modal__footer__btns__deletebtn">Yeap!</button>
           </div>
         </div>
       </div>
-      <div class="app__board">
-        <div class="app__user-info">
-          <div class="app__user-info__first-letter">R</div>
-          <div class="app__user-info__content">
-            <div class="app__user-info__content__full-name">Rashad Asadov</div>
-            <div class="app__user-info__content__profession">Project Owner</div>
-          </div>
-        </div>
-        <div class="app__add-task-form">
-          <input type="text" class="app__add-task-form__input" placeholder="Add task">
-          <button class="app__add-task-form__add-task">+</button>
-        </div>
-        <div class="app__columns">
-          <div class="app__dropzone">
-            <div class="app__dropzone__title">Tasks</div>
-            <ul class="app_dropzone__added-tasks">
 
-            </ul>
+      <div class="app__modal update">
+        <div class="app__modal__header">Task Update</div>
+        <div class="app__modal__body">
+          <label for="" class="app__modal__body__label">New title:</label>
+          <input type="text" class="app__modal__body__input" id='update-task-input' maxLength="15" placeholder="New title">
+        </div>
+        <div class="app__modal__footer">
+          <div class="app__modal__footer__btns">
+            <button class="app__modal__footer__btns__cancelbtn" id="cancelUpdateBtn">Cancel</button>
+            <button class="app__modal__footer__btns__savebtn">Save!</button>
           </div>
-          <div class="app__dropzone">
-            <div class="app__dropzone__title">In Progress</div>
+        </div>
+      </div>
+
+      <div class="app__header">
+          <div class="app__header__brand">
+            <span class="app__header__brand--pt1">Vanilla</span><span class="app__header__brand--pt2">Tasker</span>
           </div>
-          <div class="app__dropzone">
-            <div class="app__dropzone__title">Done</div>
+      </div>
+      <div class="app__board">
+        <div class="app__section1">
+          <div class="app__section1__user-info">
+            <div class="app__section1__user-info__first-letter">R</div>
+            <div class="app__section1__user-info__content">
+              <div class="app__section1__user-info__content__full-name">Rashad Asadov</div>
+              <div class="app__section1__user-info__content__profession">Project Owner</div>
+            </div>
+          </div>
+          <div class="app__section1__add-task-form">
+            <form>
+              <input type="text" class="app__section1__add-task-form__input" id='add-task-input' maxLength='15' placeholder="Add task">
+              <input type='submit' class="app__section1__add-task-form__add-task-btn" id="add-task" value='Add'></input>
+            </form>
+          </div>
+        </div>
+        <div class="app__section2">
+          <div class="app__section2__column">
+            <div class="app__section2__title">Tasks</div>
+            <div class="app__section2__task-info dropzone" id="ready-tasks">
+            </div>
+          </div>
+          <div class="app__section2__column">
+            <div class="app__section2__title">In Progress</div>
+            <div class="app__section2__task-info dropzone" id="in-progress-tasks">
+            </div>
+          </div>
+          <div class="app__section2__column">
+            <div class="app__section2__title">Done</div>
+            <div class="app__section2__task-info dropzone" id='done-tasks'>
+            </div>
           </div>
         </div>
       </div>
