@@ -1,4 +1,4 @@
-@mixin flex( $jc: flex-start, $ai: stretch, $fdr: row, $flshort: (0, 1, auto )) {
+@mixin flex( $jc: flex-start, $ai: stretch, $fdr: row, $flshort: (0 1 auto )) {
     display: flex;
     justify-content: $jc;
     align-items: $ai;
