@@ -1,5 +1,5 @@
-export enum Status {
-    Ready = 'ready-tasks',
-    InProgress = 'in-progress-tasks',
-    Done = 'done-tasks'
+export enum STATUS {
+    READY = 'ready-tasks',
+    INPROGRESS = 'in-progress-tasks',
+    DONE = 'done-tasks'
 }

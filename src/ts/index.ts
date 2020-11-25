@@ -1,5 +1,5 @@
 import {newTask} from './types'; 
-import {Status} from "./enums"; 
+import {STATUS} from "./enums"; 
 
 let modalOverlay: HTMLElement = document.querySelector('.app__modal-overlay');
 let deleteModal: HTMLElement = document.querySelector('.delete');
@@ -115,13 +115,13 @@ const closeModal = () => {
 const whichBelongsTo = (status: HTMLElement) => {
     let belongsTo = (<HTMLElement>status.parentNode.parentNode.parentNode);
 
-    belongsTo.id == Status.Ready ? (
+    belongsTo.id == STATUS.READY ? (
         status.textContent = 'Task',
         status.className = 'app__section2__task-info__status ready'
-    ) : belongsTo.id == Status.InProgress ? (
+    ) : belongsTo.id == STATUS.INPROGRESS ? (
         status.className = 'app__section2__task-info__status in-progress',
         status.textContent = 'In Progress'
-    ) : belongsTo.id == Status.Done ? (
+    ) : belongsTo.id == STATUS.DONE ? (
         status.className = 'app__section2__task-info__status done',
         status.textContent = 'Done'
     ) : null
